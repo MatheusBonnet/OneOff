@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.oneoff.aep.DTO.PontoDTO;
+import com.oneoff.aep.data.PontoDTO;
 import com.oneoff.aep.entities.Ponto;
 import com.oneoff.aep.model.Response;
 import com.oneoff.aep.services.IPontoService;

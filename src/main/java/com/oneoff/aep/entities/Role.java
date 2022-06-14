@@ -2,6 +2,8 @@ package com.oneoff.aep.entities;
 
 import org.springframework.security.core.GrantedAuthority;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
@@ -10,9 +12,12 @@ import java.util.List;
 public class Role implements GrantedAuthority {
 
 
-    @Id
+    private static final long serialVersionUID = 1L;
+
+	@Id
     private String nomeRole;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "roles")
     private List<User> usuarios;
 

@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.oneoff.aep.DTO.PontoDTO;
+import com.oneoff.aep.data.PontoDTO;
 import com.oneoff.aep.entities.Ponto;
 
 public interface IPontoService {

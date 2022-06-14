@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.oneoff.aep.DTO.UserDTO;
+import com.oneoff.aep.data.UserDTO;
 import com.oneoff.aep.entities.User;
 import com.oneoff.aep.repositories.IUserRepository;
 import com.oneoff.aep.services.IUserService;

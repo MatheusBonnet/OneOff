@@ -10,6 +10,8 @@ import javax.persistence.*;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -24,7 +26,8 @@ public class User implements UserDetails,Serializable{
 	private static final long serialVersionUID = 260616964148689036L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(generator = "increment")
+	@GenericGenerator(name = "increment", strategy = "increment")
 	private Long id;
 	
 	@JsonInclude(Include.NON_EMPTY)
@@ -39,6 +42,7 @@ public class User implements UserDetails,Serializable{
 	
 	@JsonInclude(Include.NON_EMPTY)
 	private String password;
+	
 	@JsonIgnore
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(

@@ -2,7 +2,7 @@ package com.oneoff.aep.facade.populators;
 
 import org.springframework.stereotype.Service;
 
-import com.oneoff.aep.DTO.UserDTO;
+import com.oneoff.aep.data.UserDTO;
 import com.oneoff.aep.entities.User;
 
 @Service

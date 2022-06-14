@@ -13,7 +13,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-import com.oneoff.aep.DTO.UserDTO;
+import com.oneoff.aep.data.UserDTO;
 import com.oneoff.aep.entities.User;
 import com.oneoff.aep.exception.UserException;
 import com.oneoff.aep.facade.UserFacade;

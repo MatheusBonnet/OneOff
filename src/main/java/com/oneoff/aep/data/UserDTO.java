@@ -1,4 +1,4 @@
-package com.oneoff.aep.DTO;
+package com.oneoff.aep.data;
 
 import org.springframework.hateoas.RepresentationModel;
 

@@ -1,8 +1,5 @@
 package com.oneoff.aep.services;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,7 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
-import com.oneoff.aep.DTO.PontoDTO;
+import com.oneoff.aep.data.PontoDTO;
 import com.oneoff.aep.entities.Ponto;
 import com.oneoff.aep.entities.User;
 import com.oneoff.aep.exception.PontoException;
@@ -74,10 +71,9 @@ public class PontoServiceImpl implements IPontoService {
 	}
 
 	@Override
-	public Ponto inserirPonto(PontoDTO ponto) {
+	public Ponto inserirPonto(PontoDTO pontoDto) {
 		try {
-	        Ponto pontoNew = pontoFacade.registerPonto(ponto);
-			return pontoNew;
+	      return pontoFacade.registerPonto(pontoDto);
 		} catch (Exception e) {
 			throw new PontoException(MESSAGE_ERROR, HttpStatus.INTERNAL_SERVER_ERROR);
 		}

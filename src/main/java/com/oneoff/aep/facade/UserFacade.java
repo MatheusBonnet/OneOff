@@ -1,11 +1,11 @@
 package com.oneoff.aep.facade;
 
+import com.oneoff.aep.data.UserDTO;
 import com.oneoff.aep.entities.Role;
 import com.oneoff.aep.repositories.IRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.oneoff.aep.DTO.UserDTO;
 import com.oneoff.aep.entities.User;
 import com.oneoff.aep.facade.populators.Populator;
 import com.oneoff.aep.repositories.IUserRepository;
@@ -59,10 +59,10 @@ public class UserFacade {
 		getUserReversePopulator().populate(userDTO, user);
 
 		if(userDTO.getEmail().equalsIgnoreCase("admin@gmail.com")){
-			List<Role> roles = roleRepository.findByRole("ADMIN");
+			List<Role> roles = roleRepository.findByRole("ADMINISTRADOR");
 			user.setRoles(roles);
 		}else {
-			List<Role> roles = roleRepository.findByRole("USER");
+			List<Role> roles = roleRepository.findByRole("USUARIO_NORMAL");
 			user.setRoles(roles);
 		}
 		getRepository().save(user);
