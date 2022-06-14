@@ -72,7 +72,7 @@ public class JWTConfiguracao extends WebSecurityConfigurerAdapter {
     
     public void addCorsMappings(CorsRegistry registry) {
 		registry.addMapping("/**")
-		.allowedOrigins("http://localhost:3000")
+		.allowedOrigins("https://one-off-api.herokuapp.com")
 		.allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS", "HEAD", "TRACE", "CONNECT");
     }
 
