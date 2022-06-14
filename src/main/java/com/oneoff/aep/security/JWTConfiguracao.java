@@ -52,7 +52,8 @@ public class JWTConfiguracao extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().authorizeRequests()
-                .antMatchers("/h2-console/**", "/v1/api/auth/singup", "/login").permitAll()
+                .antMatchers("/h2-console/**", "https://one-off-api.herokuapp.com/v1/api/auth/singup",
+                		"https://one-off-api.herokuapp.com/login").permitAll()
                 .and().cors()
                 .and().csrf().disable()
                 .addFilter(new JWTAutenticarFilter(authenticationManager()))
@@ -72,7 +73,7 @@ public class JWTConfiguracao extends WebSecurityConfigurerAdapter {
     
     public void addCorsMappings(CorsRegistry registry) {
 		registry.addMapping("/**")
-		.allowedOrigins("https://one-off-api.herokuapp.com")
+		.allowedOrigins("http://http://localhost:3000")
 		.allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS", "HEAD", "TRACE", "CONNECT");
     }
 
