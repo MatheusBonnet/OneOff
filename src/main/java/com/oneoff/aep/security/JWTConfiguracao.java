@@ -27,13 +27,13 @@ import com.oneoff.aep.services.UserServiceImpl;
 @Configuration
 public class JWTConfiguracao extends WebSecurityConfigurerAdapter {
 
-    private final UserServiceImpl usuarioService;
+    private final UserServiceImpl usuarioServiceImpl;
     
     private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public JWTConfiguracao(UserServiceImpl usuarioService, PasswordEncoder passwordEncoder) {
-        this.usuarioService = usuarioService;
+    public JWTConfiguracao(UserServiceImpl usuarioServiceImpl, PasswordEncoder passwordEncoder) {
+        this.usuarioServiceImpl = usuarioServiceImpl;
         this.passwordEncoder = passwordEncoder;
     }
     
@@ -46,7 +46,7 @@ public class JWTConfiguracao extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(usuarioService).passwordEncoder(passwordEncoder);
+        auth.userDetailsService(usuarioServiceImpl).passwordEncoder(passwordEncoder);
     }
 
     @Override
