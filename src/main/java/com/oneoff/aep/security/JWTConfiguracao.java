@@ -52,8 +52,8 @@ public class JWTConfiguracao extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().authorizeRequests()
-                .antMatchers("/h2-console/**", "https://one-off-api.herokuapp.com/v1/api/auth/singup",
-                		"https://one-off-api.herokuapp.com/login").permitAll()
+                .antMatchers("/h2-console/**", "/v1/api/auth/singup",
+                		"/login").permitAll()
                 .and().cors()
                 .and().csrf().disable()
                 .addFilter(new JWTAutenticarFilter(authenticationManager()))
