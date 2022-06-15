@@ -15,7 +15,6 @@ public class PontoReversePopulator implements Populator<PontoDTO, Ponto>{
 		target.setDate(source.getDia());
 		target.setHorasEntrada(source.getHoraEntrada());
 		target.setHoraSaida(source.getHoraSaida());
-		target.setAguardandoAprovacao(source.getAguardandoAprovacao());
 	}
 
 }

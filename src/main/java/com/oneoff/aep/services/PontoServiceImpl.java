@@ -20,11 +20,9 @@ import com.oneoff.aep.repositories.IPontoRepository;
 @Service
 public class PontoServiceImpl implements IPontoService {
 
-	public static final String MESSAGE_ERROR = "Erro interno no servidor, consulte o suporte!!!";
-
 	public static final String MESSAGE_ERROR_PONTO_NOT_FOUND = "Ponto nao encontrado, tente novamente.";
 
-	private static final String MENSAGEM_ERRO = null;
+	private static final String MENSAGEM_ERRO = "Erro interno no servidor, consulte o suporte";
 
 	@Autowired
 	private IPontoRepository produtoRepository;
@@ -75,7 +73,7 @@ public class PontoServiceImpl implements IPontoService {
 		try {
 	      return pontoFacade.registerPonto(pontoDto);
 		} catch (Exception e) {
-			throw new PontoException(MESSAGE_ERROR, HttpStatus.INTERNAL_SERVER_ERROR);
+			throw new PontoException(MENSAGEM_ERRO, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 
@@ -104,7 +102,7 @@ public class PontoServiceImpl implements IPontoService {
 		} catch (PontoException m) {
 			throw m;
 		} catch (Exception e) {
-			throw new PontoException(MESSAGE_ERROR, HttpStatus.INTERNAL_SERVER_ERROR);
+			throw new PontoException(MENSAGEM_ERRO, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 	

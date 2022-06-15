@@ -1,7 +1,5 @@
 package com.oneoff.aep.data;
 
-import java.util.Date;
-
 import org.springframework.hateoas.RepresentationModel;
 
 public class PontoDTO extends RepresentationModel<PontoDTO>{
@@ -10,13 +8,11 @@ public class PontoDTO extends RepresentationModel<PontoDTO>{
 	
 	private String descricao;
 	
-	private Date horaEntrada;
+	private String horaEntrada;
 	
-	private Date horaSaida;
+	private String horaSaida;
 	
-	private Date dia;
-	
-	private String aguardandoAprovacao;
+	private String dia;
 	
 	public PontoDTO() {
 	}
@@ -24,14 +20,13 @@ public class PontoDTO extends RepresentationModel<PontoDTO>{
 	
 
 
-	public PontoDTO(Long id, String descricao, Date horaEntrada, Date horaSaida, Date dia, String aguardandoAprovacao) {
+	public PontoDTO(Long id, String descricao, String horaEntrada, String horaSaida, String dia) {
 		super();
 		this.id = id;
 		this.descricao = descricao;
 		this.horaEntrada = horaEntrada;
 		this.horaSaida = horaSaida;
 		this.dia = dia;
-		this.aguardandoAprovacao = aguardandoAprovacao;
 	}
 
 	public Long getId() {
@@ -50,35 +45,27 @@ public class PontoDTO extends RepresentationModel<PontoDTO>{
 		this.descricao = descricao;
 	}
 
-	public String getAguardandoAprovacao() {
-		return aguardandoAprovacao;
-	}
-
-	public void setAguardandoAprovacao(String aguardandoAprovacao) {
-		this.aguardandoAprovacao = aguardandoAprovacao;
-	}
-
-	public Date getHoraEntrada() {
+	public String getHoraEntrada() {
 		return horaEntrada;
 	}
 
-	public void setHoraEntrada(Date horaEntrada) {
+	public void setHoraEntrada(String horaEntrada) {
 		this.horaEntrada = horaEntrada;
 	}
 
-	public Date getHoraSaida() {
+	public String getHoraSaida() {
 		return horaSaida;
 	}
 
-	public void setHoraSaida(Date horaSaida) {
+	public void setHoraSaida(String horaSaida) {
 		this.horaSaida = horaSaida;
 	}
 
-	public Date getDia() {
+	public String getDia() {
 		return dia;
 	}
 
-	public void setDia(Date dia) {
+	public void setDia(String dia) {
 		this.dia = dia;
 	}
 }

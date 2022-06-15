@@ -29,35 +29,30 @@ public class Ponto {
 	private String descricao;
 	
 	@Column(name = "hora_entrada")
-	private Date horasEntrada;
+	private String horasEntrada;
 	
 	@Column(name = "hora_saida")
-	private Date horaSaida;
+	private String horaSaida;
 	
 	@Column(name = "dd_mm_yyyy")
-	private Date date;
+	private String date;
 
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id")
 	private User user;
 	
-	@Column(name = "aguardando_aprovacao")
-	private String aguardandoAprovacao;
-	
 	
 	public Ponto() {
 	}
 	
-	public Ponto(Long id, String descricao, Date horasEntrada, Date horaSaida, Date date, User user,
-			String aguardandoAprovacao) {
+	public Ponto(Long id, String descricao, String horasEntrada, String horaSaida, String date, User user) {
 		this.id = id;
 		this.descricao = descricao;
 		this.horasEntrada = horasEntrada;
 		this.horaSaida = horaSaida;
 		this.date = date;
 		this.user = user;
-		this.aguardandoAprovacao = aguardandoAprovacao;
 	}
 
 	public Long getId() {
@@ -84,35 +79,27 @@ public class Ponto {
 		this.user = user;
 	}
 	
-	public String getAguardandoAprovacao() {
-		return aguardandoAprovacao;
-	}
-
-	public void setAguardandoAprovacao(String aguardandoAprovacao) {
-		this.aguardandoAprovacao = aguardandoAprovacao;
-	}
-	
-	public Date getHorasEntrada() {
+	public String getHorasEntrada() {
 		return horasEntrada;
 	}
 
-	public void setHorasEntrada(Date horasEntrada) {
+	public void setHorasEntrada(String horasEntrada) {
 		this.horasEntrada = horasEntrada;
 	}
 
-	public Date getHoraSaida() {
+	public String getHoraSaida() {
 		return horaSaida;
 	}
 
-	public void setHoraSaida(Date horaSaida) {
+	public void setHoraSaida(String horaSaida) {
 		this.horaSaida = horaSaida;
 	}
 
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 

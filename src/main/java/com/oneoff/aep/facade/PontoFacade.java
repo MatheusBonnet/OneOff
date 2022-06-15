@@ -1,23 +1,14 @@
 package com.oneoff.aep.facade;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-
-import org.apache.tomcat.util.buf.StringUtils;
-import org.aspectj.weaver.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.oneoff.aep.data.PontoDTO;
 import com.oneoff.aep.entities.Ponto;
-import com.oneoff.aep.entities.User;
 import com.oneoff.aep.facade.populators.Populator;
 import com.oneoff.aep.repositories.IPontoRepository;
 import com.oneoff.aep.services.IPontoService;
 import com.oneoff.aep.services.IUserService;
-
-import ch.qos.logback.classic.pattern.Util;
 
 @Service
 public class PontoFacade {
@@ -60,14 +51,13 @@ public class PontoFacade {
 
 	public Ponto registerPonto(PontoDTO pontoDTO) throws Exception {
 		Ponto ponto = new Ponto();
-		SimpleDateFormat diaFormatado = new SimpleDateFormat("dd/MM/yyyy");
-		SimpleDateFormat horaFormatada = new SimpleDateFormat("HH:mm:ss");
 		
 		if(pontoDTO != null) {
-			ponto.setHorasEntrada(horaFormatada.parse(pontoDTO.getHoraEntrada().toString()));
-			ponto.setHoraSaida(horaFormatada.parse(pontoDTO.getHoraSaida().toString()));
-			ponto.setDate(diaFormatado.parse(pontoDTO.getDia().toString()));
+			ponto.setHorasEntrada(pontoDTO.getHoraEntrada());
+			ponto.setHoraSaida(pontoDTO.getHoraSaida());
+			ponto.setDate(pontoDTO.getDia());
 			ponto.setDescricao(pontoDTO.getDescricao());
+			ponto.setUser(userService.findAuth());
 			getRepository().save(ponto);
 		}
 		return ponto;
